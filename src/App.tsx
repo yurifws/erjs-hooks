@@ -1,5 +1,6 @@
 
 import './App.css';
+import PeopleList from './PeopleList';
 import useCounter from './hooks/useCounter';
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         { number }
+        <PeopleList/>
+        <PeopleList/>
       </header>
     </div>
   );
