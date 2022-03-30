@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 import ScrollableBox, { ScrollableRef } from "./ScrollableBox";
 
@@ -24,12 +24,15 @@ function App() {
     fecthData();
   }, [fecthData]);
 
+  const data = useMemo(() => Array(33_000_000).fill({ foo: "bar" }), []);
+
   return (
     <div className="App">
+      {postId}
       <ScrollableBox ref={boxRef} width={120} height={120}>
         <p>{content || "carregando..."}</p>
       </ScrollableBox>
-      <button onClick={() => setPostId(2)}>descer</button>
+      <button onClick={() => setPostId(postId + 1)}>somar</button>
     </div>
   );
 }
